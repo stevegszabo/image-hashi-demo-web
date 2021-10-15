@@ -14,5 +14,5 @@ jobs:
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
         DOCKER_REGISTRY: ${{ secrets.DOCKERHUB_REGISTRY }}
-        DOCKER_REPOSITORY: hashi-demo-app-web
+        DOCKER_REPOSITORY: hashi-demo-web
       run: ./build.sh
