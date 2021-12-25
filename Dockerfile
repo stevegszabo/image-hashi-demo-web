@@ -21,6 +21,7 @@ RUN $(npm bin)/ng build --prod
 FROM nginx:1.14-alpine
 
 ENV APPLICATION_BACK=application:5000
+ENV RELEASE=123
 
 ## Copy our default nginx config
 COPY nginx/default.conf /etc/nginx/conf.d/
