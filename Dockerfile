@@ -21,7 +21,6 @@ RUN $(npm bin)/ng build --prod
 FROM nginx:1.14-alpine
 
 ENV APPLICATION_BACK=application:5000
-ENV RELEASE=123
 
 RUN apk update && apk upgrade
 
@@ -35,6 +34,6 @@ RUN rm -rf /usr/share/nginx/html/*
 ## From ‘builder’ stage copy over the artifacts in dist folder to default nginx public folder
 COPY --from=builder /ng-app/dist/hashi-demo-app /usr/share/nginx/html
 
-RUN chown -R nginx:nginx /etc/nginx/conf.d
+RUN touch /var/run/nginx.pid && chown -R nginx:nginx /etc/nginx/conf.d /var/run/nginx.pid
 USER nginx
 ENTRYPOINT ["/entrypoint.sh"]
