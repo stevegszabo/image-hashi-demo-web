@@ -23,6 +23,8 @@ FROM nginx:1.14-alpine
 ENV APPLICATION_BACK=application:5000
 ENV RELEASE=123
 
+RUN apk update && apk upgrade && apk cache clean
+
 ## Copy our default nginx config
 COPY nginx/default.conf /etc/nginx/conf.d/
 COPY entrypoint.sh /
@@ -33,5 +35,5 @@ RUN rm -rf /usr/share/nginx/html/*
 ## From ‘builder’ stage copy over the artifacts in dist folder to default nginx public folder
 COPY --from=builder /ng-app/dist/hashi-demo-app /usr/share/nginx/html
 
-USER node
+USER nginx
 ENTRYPOINT ["/entrypoint.sh"]
