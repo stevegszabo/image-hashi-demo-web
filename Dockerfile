@@ -33,5 +33,5 @@ RUN rm -rf /usr/share/nginx/html/*
 ## From ‘builder’ stage copy over the artifacts in dist folder to default nginx public folder
 COPY --from=builder /ng-app/dist/hashi-demo-app /usr/share/nginx/html
 
-USER www-data
+USER node
 ENTRYPOINT ["/entrypoint.sh"]
