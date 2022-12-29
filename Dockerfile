@@ -23,7 +23,7 @@ FROM nginx:1.14-alpine
 ENV APPLICATION_BACK=application:5000
 ENV RELEASE=123
 
-RUN apk update && apk upgrade && apk cache clean
+RUN apk update && apk upgrade
 
 ## Copy our default nginx config
 COPY nginx/default.conf /etc/nginx/conf.d/
