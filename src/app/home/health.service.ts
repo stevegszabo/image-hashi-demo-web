@@ -16,8 +16,8 @@ const httpOptions = {
 })
 export class HealthService {
 
-  private healthURL: string = 'http://' + window.location.host + '/api/health'
-  private databaseHealth: string = 'http://' + window.location.host + '/api/posts'
+  private healthURL: string = 'https://' + window.location.host + '/api/health'
+  private databaseHealth: string = 'https://' + window.location.host + '/api/posts'
 
   constructor(private http: HttpClient){ 
   }
