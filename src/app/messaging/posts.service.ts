@@ -19,8 +19,8 @@ export class PostsService {
 
   
 
-  private baseUrl: string = 'http://' + window.location.host + '/api/posts'
-  private postUrl: string = 'http://' + window.location.host + '/api/post'
+  private baseUrl: string = 'https://' + window.location.host + '/api/posts'
+  private postUrl: string = 'https://' + window.location.host + '/api/post'
 
  constructor(private http: HttpClient){ 
  }

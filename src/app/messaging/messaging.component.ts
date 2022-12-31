@@ -21,7 +21,7 @@ export interface Post {
   ]
 })
 export class MessagingComponent implements OnInit {
-  private url = 'http://' + window.location.host
+  private url = 'https://' + window.location.host
 
   private socket; 
 
