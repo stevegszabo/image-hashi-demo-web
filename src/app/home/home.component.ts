@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
 
   public isEnabled: Flag = <Flag>{};
 
-  private url = 'http://' + window.location.host
+  private url = 'https://' + window.location.host
 
   public interval: any;
 
