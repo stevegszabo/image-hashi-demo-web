@@ -51,6 +51,7 @@ ngOnInit() {
 onSubmit(post: Post) {
   this.postsService.newPost(post).subscribe(data => {});
   this.formValues.resetForm();
+  window.location.reload();
 }
 
 refreshData() {
