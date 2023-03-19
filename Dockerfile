@@ -5,8 +5,6 @@ FROM node:12-alpine as builder
 
 ARG DOCKER_TAG
 ENV DOCKER_TAG=$DOCKER_TAG
-RUN sed -i "s/DOCKER_TAG/$DOCKER_TAG/" src/app/home/home.component.html
-
 
 COPY package.json package-lock.json ./
 
@@ -16,6 +14,10 @@ RUN npm set strict-ssl false && npm i && mkdir /ng-app && cp -R ./node_modules .
 WORKDIR /ng-app
 
 COPY . .
+
+## Set the application version
+RUN ls -la
+RUN sed -i "s/DOCKER_TAG/$DOCKER_TAG/" src/app/home/home.component.html
 
 ## Build the angular app in production mode and store the artifacts in dist folder
 RUN $(npm bin)/ng build --prod
