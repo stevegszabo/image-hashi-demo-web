@@ -64,10 +64,10 @@ export class HomeComponent implements OnInit {
         this.dbHealth = true;
       }, err => this.dbError());
     }, 4000);
-    this.socket = io(this.url, {transports: ['polling']});
-    this.socket.on('health event', (healthData)=> {
-      this.showCards = true;
-    })
+//     this.socket = io(this.url, {transports: ['polling']});
+//     this.socket.on('health event', (healthData)=> {
+//       this.showCards = true;
+//     })
   }
 
   apiError() {
