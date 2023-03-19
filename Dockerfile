@@ -3,6 +3,11 @@
 # We label our stage as ‘builder’
 FROM node:12-alpine as builder
 
+ARG DOCKER_TAG
+ENV DOCKER_TAG=$DOCKER_TAG
+RUN sed -i "s/DOCKER_TAG/$DOCKER_TAG/" src/app/home/home.component.html
+
+
 COPY package.json package-lock.json ./
 
 ## Storing node modules on a separate layer will prevent unnecessary npm installs at each build
@@ -20,10 +25,7 @@ RUN $(npm bin)/ng build --prod
 
 FROM nginx:1.14-alpine
 
-ARG DOCKER_TAG
-
 ENV APPLICATION_BACK=application:5000
-ENV DOCKER_TAG=$DOCKER_TAG
 
 RUN apk update && apk upgrade
 
