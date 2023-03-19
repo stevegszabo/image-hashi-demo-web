@@ -16,7 +16,6 @@ WORKDIR /ng-app
 COPY . .
 
 ## Set the application version
-RUN ls -la
 RUN sed -i "s/DOCKER_TAG/$DOCKER_TAG/" src/app/home/home.component.html
 
 ## Build the angular app in production mode and store the artifacts in dist folder
