@@ -20,7 +20,10 @@ RUN $(npm bin)/ng build --prod
 
 FROM nginx:1.14-alpine
 
+ARG DOCKER_TAG
+
 ENV APPLICATION_BACK=application:5000
+ENV DOCKER_TAG=$DOCKER_TAG
 
 RUN apk update && apk upgrade
 
